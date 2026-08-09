@@ -1,5 +1,5 @@
 /* ----------------------------------------------------
-   BHUSHAN DHARMADHIKARI - 2026 OBSIDIAN INTERACTION ENGINE
+   BHUSHAN DHARMADHIKARI - DEXLORY THEME ENGINE
    Guaranteed Global Function Scope & Event Delegation
 ---------------------------------------------------- */
 
@@ -29,7 +29,7 @@ window.closeCertModal = function() {
 
 // 2. Global Core Interactions Initializer
 function initPortfolioApp() {
-  console.log('Bhushan Portfolio App Initialized');
+  console.log('Bhushan Portfolio App Initialized (Dexlory Theme)');
 
   // Mobile Navigation Menu Toggle
   const mobileToggle = document.getElementById('mobileToggle');
