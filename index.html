@@ -42,9 +42,9 @@
     </div>
   </header>
 
-  <!-- ==================== NETFLIX HERO CINEMATIC BANNER ==================== -->
+  <!-- ==================== NETFLIX HERO CINEMATIC BANNER WITH 3D POP-OUT CARD ==================== -->
   <section class="hero-section" id="home">
-    <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center;">
+    <div class="container" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.5rem; align-items: center;">
       
       <div class="hero-content">
         <span class="badge-top10"><i class="fas fa-fire"></i> FEATURED DEVELOPER</span>
@@ -70,23 +70,60 @@
         </div>
       </div>
 
-      <!-- Hero Featured Avatar Frame (Bhushan in Blazer) -->
-      <div style="text-align: center; max-width: 310px; margin: 0 auto; width: 100%;">
-        <img src="assets/images/bhushan-blazer.jpg" alt="Bhushan Dharmadhikari" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4 / 5; border: 3px solid var(--accent-red); box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);">
+      <!-- 3D OUT-OF-BOUNDS FRAME BREAKOUT POP-OUT CARD (IMAGE POP-OUT ILLUSION) -->
+      <div class="popout-3d-wrapper">
+        <div class="popout-card-frame" id="popoutHeroCard">
+          
+          <!-- Social Media Frame Bar Header -->
+          <div class="popout-post-header">
+            <img src="assets/images/bhushan-blazer.jpg" alt="Bhushan Avatar" class="popout-avatar-icon">
+            <div class="popout-user-info">
+              <h4>bhushan_dharmadhikari</h4>
+              <p><i class="fas fa-check-circle"></i> Full-Stack Software Engineer</p>
+            </div>
+          </div>
+
+          <!-- Media Area With 3D Head & Arm Break-Out Layer -->
+          <div class="popout-media-area">
+            <img src="assets/images/bhushan-blazer.jpg" alt="Bhushan 3D Breakout Portrait" class="popout-img-layer">
+          </div>
+
+          <!-- 3D Floating Badge Breaking Outside Frame Bottom -->
+          <div class="popout-floating-badge">
+            <i class="fas fa-code"></i> MCA 9.00 CGPA
+          </div>
+
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ==================== ABOUT DEVELOPER SECTION ==================== -->
+  <!-- ==================== ABOUT DEVELOPER SECTION WITH 3D POP-OUT CARD ==================== -->
   <section class="row-section" id="about" style="background: #0f0f0f; padding-top: 3.5rem; padding-bottom: 3.5rem; border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
     <div class="container">
       
       <div style="display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 3rem; align-items: center;">
         
-        <!-- About Photo (Bhushan in Suit) -->
-        <div style="max-width: 300px; width: 100%; margin: 0 auto;">
-          <img src="assets/images/bhushan-suit.jpg" alt="Bhushan Dharmadhikari Professional Profile" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4 / 5; border: 2px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(255, 153, 0, 0.25);">
+        <!-- 3D Breakout Frame Photo (Bhushan in Suit) -->
+        <div class="popout-3d-wrapper">
+          <div class="popout-card-frame">
+            <div class="popout-post-header">
+              <img src="assets/images/bhushan-suit.jpg" alt="Bhushan Avatar" class="popout-avatar-icon" style="border-color: var(--accent-gold);">
+              <div class="popout-user-info">
+                <h4>bhushan2911</h4>
+                <p style="color: var(--accent-gold);"><i class="fas fa-star"></i> Top MCA Graduate</p>
+              </div>
+            </div>
+
+            <div class="popout-media-area">
+              <img src="assets/images/bhushan-suit.jpg" alt="Bhushan 3D Suit Breakout" class="popout-img-layer">
+            </div>
+
+            <div class="popout-floating-badge" style="background: var(--accent-cyan); color: #000;">
+              <i class="fas fa-rocket"></i> 3 Internships
+            </div>
+          </div>
         </div>
 
         <!-- Bio Details -->

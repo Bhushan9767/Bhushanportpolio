@@ -1,10 +1,68 @@
-/* ----------------------------------------------------
-   BHUSHAN DHARMADHIKARI - NETFLIX & AMAZON CINEMATIC ENGINE
-   Includes Header Scroll Solidification & Animations
----------------------------------------------------- */
+// BHUSHAN DHARMADHIKARI PORTFOLIO INTERACTIVITY SCRIPT
 
-// 1. Certificate Lightbox Modal Functions (Globally Accessible)
-window.openCertModal = function(title, issuer, imgSrc) {
+document.addEventListener('DOMContentLoaded', () => {
+
+  // 1. Scroll Progress Bar Update
+  const progressBar = document.getElementById('progressBar');
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercentage = (window.scrollY / totalHeight) * 100;
+    if (progressBar) progressBar.style.width = scrollPercentage + '%';
+
+    if (navbar) {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+  });
+
+  // 2. Mobile Menu Toggle
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+
+  // 3. Interactive Mouse Parallax Tilt for 3D Pop-Out Break-Out Cards
+  const popoutCards = document.querySelectorAll('.popout-card-frame');
+
+  popoutCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within element
+      const y = e.clientY - rect.top;  // y position within element
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -12; // Max tilt deg
+      const rotateY = ((x - centerX) / centerX) * 12;
+
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  });
+
+});
+
+// Certificate Lightbox Modal Functions
+function openCertModal(title, issuer, imgSrc) {
   const modal = document.getElementById('certModal');
   const modalTitle = document.getElementById('certModalTitle');
   const modalIssuer = document.getElementById('certModalIssuer');
@@ -12,95 +70,17 @@ window.openCertModal = function(title, issuer, imgSrc) {
 
   if (modal && modalTitle && modalIssuer && modalImg) {
     modalTitle.textContent = title;
-    modalIssuer.textContent = `Issued by ${issuer}`;
+    modalIssuer.textContent = issuer;
     modalImg.src = imgSrc;
     modal.style.opacity = '1';
     modal.style.pointerEvents = 'auto';
   }
-};
+}
 
-window.closeCertModal = function() {
+function closeCertModal() {
   const modal = document.getElementById('certModal');
   if (modal) {
     modal.style.opacity = '0';
     modal.style.pointerEvents = 'none';
   }
-};
-
-// 2. Global Core Interactions Initializer
-function initNetflixPortfolioApp() {
-  console.log('Bhushan Netflix & Amazon Portfolio App Initialized');
-
-  // Mobile Navigation Menu Toggle
-  const mobileToggle = document.getElementById('mobileToggle');
-  const navLinks = document.getElementById('navLinks');
-
-  if (mobileToggle && navLinks) {
-    mobileToggle.onclick = function() {
-      navLinks.classList.toggle('active');
-    };
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.onclick = function() {
-        navLinks.classList.remove('active');
-      };
-    });
-  }
-
-  // Navbar Scroll Solidify & Top Scroll Progress Bar
-  const navbar = document.getElementById('navbar');
-  const progressBar = document.getElementById('progressBar');
-
-  window.onscroll = function() {
-    if (window.scrollY > 50) {
-      if (navbar) navbar.classList.add('scrolled');
-    } else {
-      if (navbar) navbar.classList.remove('scrolled');
-    }
-
-    if (progressBar) {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = `${percent}%`;
-    }
-  };
-
-  // Horizontal Drag / Scroll Rails smooth touch feel
-  const rails = document.querySelectorAll('.carousel-rail');
-  rails.forEach(rail => {
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    rail.addEventListener('mousedown', (e) => {
-      isDown = true;
-      startX = e.pageX - rail.offsetLeft;
-      scrollLeft = rail.scrollLeft;
-    });
-    rail.addEventListener('mouseleave', () => { isDown = false; });
-    rail.addEventListener('mouseup', () => { isDown = false; });
-    rail.addEventListener('mousemove', (e) => {
-      if(!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - rail.offsetLeft;
-      const walk = (x - startX) * 2;
-      rail.scrollLeft = scrollLeft - walk;
-    });
-  });
-
-  // Modal Backdrop Click Close Listener
-  document.onclick = function(e) {
-    const modal = document.getElementById('certModal');
-    if (modal && e.target === modal) {
-      window.closeCertModal();
-    }
-  };
-}
-
-// Ensure execution whether DOMContentLoaded fired or readyState is complete
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initNetflixPortfolioApp);
-} else {
-  initNetflixPortfolioApp();
 }
