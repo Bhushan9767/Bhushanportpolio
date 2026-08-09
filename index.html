@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bhushan Dharmadhikari | Master Full-Stack Software Developer</title>
-  <meta name="description" content="Cinematic Netflix & Amazon Prime Developer Portfolio of Bhushan Dharmadhikari. Full-Stack Software Engineer, MCA (9.00 CGPA), 3 Internships, Live Deployed Web Applications across MERN Stack, Python, Django, and Java.">
+  <meta name="description" content="Cinematic Animated Netflix & Amazon Prime Developer Portfolio of Bhushan Dharmadhikari. Full-Stack Software Engineer, MCA (9.00 CGPA), 3 Internships, Live Deployed Web Applications across MERN Stack, Python, Django, and Java.">
   
   <!-- FontAwesome & DevIcon Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,6 +17,10 @@
 
   <!-- Top Scroll Progress Bar -->
   <div class="scroll-progress-bar" id="progressBar"></div>
+
+  <!-- Custom Animated Glowing Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
 
   <!-- ==================== NETFLIX HEADER NAVBAR ==================== -->
   <header class="navbar" id="navbar">
@@ -42,51 +46,57 @@
     </div>
   </header>
 
-  <!-- ==================== NETFLIX HERO CINEMATIC BANNER ==================== -->
+  <!-- ==================== NETFLIX HERO CINEMATIC BANNER WITH INTERACTIVE CANVAS ==================== -->
   <section class="hero-section" id="home">
-    <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center;">
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; position: relative; z-index: 2;">
       
       <div class="hero-content">
-        <span class="badge-top10"><i class="fas fa-fire"></i> FEATURED DEVELOPER</span>
+        <span class="badge-top10 gsap-hero-elem"><i class="fas fa-fire"></i> FEATURED DEVELOPER</span>
         
-        <h1 class="hero-title">Bhushan Dharmadhikari</h1>
+        <h1 class="hero-title gsap-hero-elem">Bhushan Dharmadhikari</h1>
 
-        <div class="hero-meta-row">
+        <div class="hero-meta-row gsap-hero-elem">
           <span class="age-rating">MCA 9.00 CGPA</span>
           <span class="pill pill-gold">Full-Stack Engineer</span>
         </div>
 
-        <p class="hero-desc">
+        <p class="hero-desc gsap-hero-elem">
           Top-ranked Software Engineer with a Master of Computer Applications (MCA) degree from Sandip University Nashik (9.00 CGPA). Specialist in engineering responsive MERN stack applications, Python/Django backends, REST APIs, and enterprise SQL/MongoDB databases across 3 software internships and live deployed apps.
         </p>
 
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="#projects" class="btn-netflix" style="padding: 0.85rem 2rem; font-size: 1rem;">
+        <div class="gsap-hero-elem" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#projects" class="btn-netflix interactive-hover" style="padding: 0.85rem 2rem; font-size: 1rem;">
             <i class="fas fa-play"></i> Explore Live Projects
           </a>
-          <a href="mailto:dharmadhikari2911@gmail.com" class="btn-secondary-netflix" style="padding: 0.85rem 2rem; font-size: 1rem;">
+          <a href="mailto:dharmadhikari2911@gmail.com" class="btn-secondary-netflix interactive-hover" style="padding: 0.85rem 2rem; font-size: 1rem;">
             <i class="fas fa-envelope"></i> Contact Email
           </a>
         </div>
       </div>
 
       <!-- Hero Featured Avatar Frame (Bhushan in Blazer) -->
-      <div style="text-align: center; max-width: 310px; margin: 0 auto; width: 100%;">
-        <img src="assets/images/bhushan-blazer.jpg" alt="Bhushan Dharmadhikari" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4 / 5; border: 3px solid var(--accent-red); box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);">
+      <div class="gsap-hero-elem" style="text-align: center; max-width: 310px; margin: 0 auto; width: 100%;">
+        <div class="avatar-frame-wrap interactive-hover">
+          <img src="assets/images/bhushan-blazer.jpg" alt="Bhushan Dharmadhikari" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4 / 5; border: 3px solid var(--accent-red); box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);">
+        </div>
       </div>
 
     </div>
   </section>
 
   <!-- ==================== ABOUT DEVELOPER SECTION ==================== -->
-  <section class="row-section" id="about" style="background: #0f0f0f; padding-top: 3.5rem; padding-bottom: 3.5rem; border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
+  <section class="row-section gsap-reveal" id="about" style="background: #0f0f0f; padding-top: 3.5rem; padding-bottom: 3.5rem; border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
     <div class="container">
       
       <div style="display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 3rem; align-items: center;">
         
         <!-- About Photo (Bhushan in Suit) -->
         <div style="max-width: 300px; width: 100%; margin: 0 auto;">
-          <img src="assets/images/bhushan-suit.jpg" alt="Bhushan Dharmadhikari Professional Profile" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4 / 5; border: 2px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(255, 153, 0, 0.25);">
+          <div class="avatar-frame-wrap interactive-hover">
+            <img src="assets/images/bhushan-suit.jpg" alt="Bhushan Dharmadhikari Professional Profile" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4 / 5; border: 2px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(255, 153, 0, 0.25);">
+          </div>
         </div>
 
         <!-- Bio Details -->
@@ -100,15 +110,15 @@
 
           <!-- Key Highlights -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-            <div style="background: #181818; padding: 0.9rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);">
+            <div class="highlight-box interactive-hover">
               <div style="font-size: 1.4rem; font-weight: 900; color: var(--accent-red);">9.00 / 10</div>
               <div style="font-size: 0.78rem; color: var(--text-sub);">MCA Sandip Univ CGPA</div>
             </div>
-            <div style="background: #181818; padding: 0.9rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);">
+            <div class="highlight-box interactive-hover">
               <div style="font-size: 1.4rem; font-weight: 900; color: var(--accent-gold);">75.17%</div>
               <div style="font-size: 0.78rem; color: var(--text-sub);">BCA MJ College Score</div>
             </div>
-            <div style="background: #181818; padding: 0.9rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);">
+            <div class="highlight-box interactive-hover">
               <div style="font-size: 1.4rem; font-weight: 900; color: var(--accent-green);">3 Internships</div>
               <div style="font-size: 0.78rem; color: var(--text-sub);">Paarsh, VeriTech, Heuristic</div>
             </div>
@@ -125,15 +135,15 @@
     </div>
   </section>
 
-  <!-- ==================== DEVELOPER ARSENAL & TECH STACK (SMALL SEPARATE BOXES) ==================== -->
-  <section class="row-section" id="skills">
+  <!-- ==================== DEVELOPER ARSENAL & TECH STACK (4 SMALL BOXES) ==================== -->
+  <section class="row-section gsap-reveal" id="skills">
     <div class="container">
       <h2 class="row-header">Developer Arsenal <span>• Tech Stack</span></h2>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem;">
         
         <!-- Box 1: Frontend -->
-        <div style="background: #141620; border: 1px solid var(--accent-red); border-radius: 10px; padding: 1.4rem;">
+        <div class="tech-box-card interactive-hover" style="background: #141620; border: 1px solid var(--accent-red); border-radius: 10px; padding: 1.4rem;">
           <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
             <i class="fab fa-react" style="font-size: 1.6rem; color: var(--accent-cyan);"></i>
             <h3 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; color: #fff;">Frontend Tech</h3>
@@ -149,7 +159,7 @@
         </div>
 
         <!-- Box 2: Backend & APIs -->
-        <div style="background: #141620; border: 1px solid var(--accent-gold); border-radius: 10px; padding: 1.4rem;">
+        <div class="tech-box-card interactive-hover" style="background: #141620; border: 1px solid var(--accent-gold); border-radius: 10px; padding: 1.4rem;">
           <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
             <i class="fab fa-node-js" style="font-size: 1.6rem; color: var(--accent-green);"></i>
             <h3 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; color: #fff;">Backend &amp; APIs</h3>
@@ -166,7 +176,7 @@
         </div>
 
         <!-- Box 3: Databases -->
-        <div style="background: #141620; border: 1px solid var(--accent-cyan); border-radius: 10px; padding: 1.4rem;">
+        <div class="tech-box-card interactive-hover" style="background: #141620; border: 1px solid var(--accent-cyan); border-radius: 10px; padding: 1.4rem;">
           <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
             <i class="fas fa-database" style="font-size: 1.6rem; color: var(--accent-cyan);"></i>
             <h3 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; color: #fff;">Databases</h3>
@@ -179,7 +189,7 @@
         </div>
 
         <!-- Box 4: Cloud & Tools -->
-        <div style="background: #141620; border: 1px solid var(--accent-green); border-radius: 10px; padding: 1.4rem;">
+        <div class="tech-box-card interactive-hover" style="background: #141620; border: 1px solid var(--accent-green); border-radius: 10px; padding: 1.4rem;">
           <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
             <i class="fab fa-git-alt" style="font-size: 1.6rem; color: #f05032;"></i>
             <h3 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800; color: #fff;">Git &amp; Cloud Tools</h3>
@@ -196,14 +206,14 @@
   </section>
 
   <!-- ==================== ROW 1: TRENDING LIVE PROJECTS ==================== -->
-  <section class="row-section" id="projects">
+  <section class="row-section gsap-reveal" id="projects">
     <div class="container">
       <h2 class="row-header">Trending Now <span>• Live Projects &amp; Tech Docs</span></h2>
 
       <div class="carousel-rail">
         
         <!-- Python Tech Notes Project Card -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap" style="background: linear-gradient(135deg, #1e1b4b, #311b92); display: flex; align-items: center; justify-content: center;">
             <i class="fas fa-book" style="font-size: 3.5rem; color: var(--accent-gold);"></i>
             <div class="play-icon-overlay"><i class="fas fa-book-open"></i></div>
@@ -222,7 +232,7 @@
         </div>
 
         <!-- Project 1 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="assets/images/media_1786262260125.png" alt="Hotel Khandesh Darbar Restaurant Platform">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -242,7 +252,7 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=600&q=80" alt="StudentStay">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -261,7 +271,7 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="assets/images/media_1786262260103.png" alt="Zorvyn Finance Dashboard">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -280,7 +290,7 @@
         </div>
 
         <!-- Project 4 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Mangalam Pipes">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -299,7 +309,7 @@
         </div>
 
         <!-- Project 5 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="assets/images/media_1786262260111.png" alt="MaxWheels Car Dealership">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -318,7 +328,7 @@
         </div>
 
         <!-- Project 6 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="assets/images/media_1786262260016.png" alt="OrgoWorld Organic Products Page">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -337,7 +347,7 @@
         </div>
 
         <!-- Project 7 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="Tokekar & Co.">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -356,7 +366,7 @@
         </div>
 
         <!-- Project 8 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="assets/images/media_1786262260173.png" alt="The Good Traffic">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -375,7 +385,7 @@
         </div>
 
         <!-- Project 9 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80" alt="ATM Simulator">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -394,7 +404,7 @@
         </div>
 
         <!-- Project 10 -->
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="poster-img-wrap">
             <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=600&q=80" alt="To-Do App">
             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
@@ -417,13 +427,13 @@
   </section>
 
   <!-- ==================== ROW 2: TOP RATED INTERNSHIPS ==================== -->
-  <section class="row-section" id="internships">
+  <section class="row-section gsap-reveal" id="internships">
     <div class="container">
       <h2 class="row-header">Top Rated Experiences <span>• Software Internships</span></h2>
 
       <div class="carousel-rail">
         
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="card-body-netflix" style="padding: 1.5rem;">
             <span class="badge-top10" style="background: var(--accent-gold); color: #000;">6 Months</span>
             <h3 class="card-title-netflix" style="font-size: 1.2rem;">MERN Stack Development</h3>
@@ -435,7 +445,7 @@
           </div>
         </div>
 
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="card-body-netflix" style="padding: 1.5rem;">
             <span class="badge-top10" style="background: var(--accent-green); color: #000;">3 Months</span>
             <h3 class="card-title-netflix" style="font-size: 1.2rem;">Web Development Intern</h3>
@@ -447,7 +457,7 @@
           </div>
         </div>
 
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="card-body-netflix" style="padding: 1.5rem;">
             <span class="badge-top10" style="background: var(--accent-gold); color: #000;">5 Months</span>
             <h3 class="card-title-netflix" style="font-size: 1.2rem;">Python + Django Intern</h3>
@@ -464,13 +474,13 @@
   </section>
 
   <!-- ==================== ROW 3: CERTIFIED CREDENTIALS ==================== -->
-  <section class="row-section" id="certificates">
+  <section class="row-section gsap-reveal" id="certificates">
     <div class="container">
       <h2 class="row-header">Verified Originals <span>• Professional Certificates</span></h2>
 
       <div class="carousel-rail">
         
-        <div class="netflix-card" onclick="openCertModal('Digital Academy — Certification Program in Java Full Stack', 'Capgemini, EduBridge & NSDC (Enrollment: EBEON0822640211, Mumbai)', 'assets/images/cert-java-fullstack.jpg')">
+        <div class="netflix-card interactive-hover" onclick="openCertModal('Digital Academy — Certification Program in Java Full Stack', 'Capgemini, EduBridge & NSDC (Enrollment: EBEON0822640211, Mumbai)', 'assets/images/cert-java-fullstack.jpg')">
           <div class="poster-img-wrap">
             <img src="assets/images/cert-java-fullstack.jpg" alt="Capgemini Java Certificate">
           </div>
@@ -481,7 +491,7 @@
           </div>
         </div>
 
-        <div class="netflix-card" onclick="openCertModal('Communication Skills Certification', 'EduBridge Learning (Enrollment: EBEON0922117162)', 'assets/images/cert-communication.jpg')">
+        <div class="netflix-card interactive-hover" onclick="openCertModal('Communication Skills Certification', 'EduBridge Learning (Enrollment: EBEON0922117162)', 'assets/images/cert-communication.jpg')">
           <div class="poster-img-wrap">
             <img src="assets/images/cert-communication.jpg" alt="EduBridge Certificate">
           </div>
@@ -492,7 +502,7 @@
           </div>
         </div>
 
-        <div class="netflix-card" onclick="openCertModal('Jignasa International Conference 2024 Volunteer', 'Vidyarthi Nidhi & MUHS Nashik', 'assets/images/cert-jignasa-2024.jpg')">
+        <div class="netflix-card interactive-hover" onclick="openCertModal('Jignasa International Conference 2024 Volunteer', 'Vidyarthi Nidhi & MUHS Nashik', 'assets/images/cert-jignasa-2024.jpg')">
           <div class="poster-img-wrap">
             <img src="assets/images/cert-jignasa-2024.jpg" alt="Jignasa Certificate">
           </div>
@@ -503,7 +513,7 @@
           </div>
         </div>
 
-        <div class="netflix-card" onclick="openCertModal('Search Engine Optimization (SEO) with Squarespace', 'Coursera & Freedom Learning Group (Issued 7 May 2024)', 'assets/images/cert-seo.jpg')">
+        <div class="netflix-card interactive-hover" onclick="openCertModal('Search Engine Optimization (SEO) with Squarespace', 'Coursera & Freedom Learning Group (Issued 7 May 2024)', 'assets/images/cert-seo.jpg')">
           <div class="poster-img-wrap">
             <img src="assets/images/cert-seo.jpg" alt="Coursera SEO Certificate">
           </div>
@@ -514,7 +524,7 @@
           </div>
         </div>
 
-        <div class="netflix-card" onclick="openCertModal('Google Ads for Beginners', 'Coursera & Paid Media (Issued 7 May 2024)', 'assets/images/cert-google-ads.jpg')">
+        <div class="netflix-card interactive-hover" onclick="openCertModal('Google Ads for Beginners', 'Coursera & Paid Media (Issued 7 May 2024)', 'assets/images/cert-google-ads.jpg')">
           <div class="poster-img-wrap">
             <img src="assets/images/cert-google-ads.jpg" alt="Coursera Google Ads Certificate">
           </div>
@@ -525,7 +535,7 @@
           </div>
         </div>
 
-        <div class="netflix-card" onclick="openCertModal('Python Data Structures Certification', 'Great Learning Academy (Issued May 2024)', 'assets/images/cert-python-ds.jpg')">
+        <div class="netflix-card interactive-hover" onclick="openCertModal('Python Data Structures Certification', 'Great Learning Academy (Issued May 2024)', 'assets/images/cert-python-ds.jpg')">
           <div class="poster-img-wrap">
             <img src="assets/images/cert-python-ds.jpg" alt="Great Learning Certificate">
           </div>
@@ -536,7 +546,7 @@
           </div>
         </div>
 
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="card-body-netflix" style="padding: 1.5rem; text-align: center;">
             <i class="fas fa-database" style="font-size: 2.5rem; color: var(--accent-green); margin-bottom: 0.8rem;"></i>
             <h3 class="card-title-netflix">SQL Skill Assessment</h3>
@@ -550,13 +560,13 @@
   </section>
 
   <!-- ==================== ROW 4: ACADEMIC DEGREES (#education) ==================== -->
-  <section class="row-section" id="education">
+  <section class="row-section gsap-reveal" id="education">
     <div class="container">
       <h2 class="row-header">Academics &amp; Honors <span>• Degrees</span></h2>
 
       <div class="carousel-rail">
         
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="card-body-netflix" style="padding: 1.5rem;">
             <span class="badge-top10" style="background: var(--accent-green); color: #000;">Post Graduation</span>
             <h3 class="card-title-netflix" style="font-size: 1.2rem;">Master of Computer Applications (MCA)</h3>
@@ -565,7 +575,7 @@
           </div>
         </div>
 
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="card-body-netflix" style="padding: 1.5rem;">
             <span class="badge-top10" style="background: var(--accent-gold); color: #000;">Under Graduation</span>
             <h3 class="card-title-netflix" style="font-size: 1.2rem;">Bachelor of Computer Applications (BCA)</h3>
@@ -574,7 +584,7 @@
           </div>
         </div>
 
-        <div class="netflix-card">
+        <div class="netflix-card interactive-hover">
           <div class="card-body-netflix" style="padding: 1.5rem;">
             <span class="badge-top10" style="background: var(--accent-red); color: #fff;">Higher Secondary</span>
             <h3 class="card-title-netflix" style="font-size: 1.2rem;">HSC (12th Science)</h3>
@@ -588,13 +598,15 @@
   </section>
 
   <!-- ==================== HIRE BHUSHAN DIRECT CALLOUT WITH SHIRT PHOTO ==================== -->
-  <section class="row-section">
+  <section class="row-section gsap-reveal">
     <div class="container">
       <div style="background: #141620; border: 1px solid var(--accent-red); border-radius: 12px; padding: 2.5rem; display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 2rem; align-items: center;">
         
         <!-- Bhushan in Shirt Photo -->
         <div style="max-width: 220px; margin: 0 auto; width: 100%;">
-          <img src="assets/images/bhushan-shirt.jpg" alt="Bhushan Dharmadhikari Direct Contact" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4 / 5; border: 2px solid var(--accent-red);">
+          <div class="avatar-frame-wrap interactive-hover">
+            <img src="assets/images/bhushan-shirt.jpg" alt="Bhushan Dharmadhikari Direct Contact" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4 / 5; border: 2px solid var(--accent-red);">
+          </div>
         </div>
 
         <div>
@@ -604,10 +616,10 @@
             Available for Software Developer, Full-Stack Engineer, MERN Developer, and Python/Django roles. Open to relocation across India.
           </p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="mailto:dharmadhikari2911@gmail.com" class="btn-netflix" style="padding: 0.75rem 1.6rem;">
+            <a href="mailto:dharmadhikari2911@gmail.com" class="btn-netflix interactive-hover" style="padding: 0.75rem 1.6rem;">
               <i class="fas fa-envelope"></i> Send Email
             </a>
-            <a href="tel:9767977156" class="btn-secondary-netflix" style="padding: 0.75rem 1.6rem;">
+            <a href="tel:9767977156" class="btn-secondary-netflix interactive-hover" style="padding: 0.75rem 1.6rem;">
               <i class="fas fa-phone"></i> Call +91 9767977156
             </a>
           </div>
@@ -676,6 +688,13 @@
     </div>
   </div>
 
+  <!-- Lenis Smooth Scroll Engine CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Application Interactivity & Animation Logic -->
   <script src="script.js"></script>
 </body>
 </html>
