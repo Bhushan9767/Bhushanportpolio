@@ -1,5 +1,5 @@
 /* ----------------------------------------------------
-   BHUSHAN DHARMADHIKARI - BULLETPROOF INTERACTION ENGINE
+   BHUSHAN DHARMADHIKARI - 2026 OBSIDIAN INTERACTION ENGINE
    Guaranteed Global Function Scope & Event Delegation
 ---------------------------------------------------- */
 
