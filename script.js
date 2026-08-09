@@ -36,29 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Interactive Mouse Parallax Tilt for 3D Pop-Out Break-Out Cards
-  const popoutCards = document.querySelectorAll('.popout-card-frame');
-
-  popoutCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left; // x position within element
-      const y = e.clientY - rect.top;  // y position within element
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -12; // Max tilt deg
-      const rotateY = ((x - centerX) / centerX) * 12;
-
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-    });
-  });
-
 });
 
 // Certificate Lightbox Modal Functions
