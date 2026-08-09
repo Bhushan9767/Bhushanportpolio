@@ -1,9 +1,9 @@
-// BHUSHAN DHARMADHIKARI PORTFOLIO INTERACTIVITY & GSAP/LENIS ANIMATION ENGINE
+// BHUSHAN DHARMADHIKARI PORTFOLIO - FULLY RESPONSIVE & INTERACTIVE ANIMATION ENGINE
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. LENIS SMOOTH INERTIA SCROLL ENGINE
-  if (typeof Lenis !== 'undefined') {
+  // 1. LENIS SMOOTH INERTIA SCROLL ENGINE (DESKTOP & TABLETS)
+  if (typeof Lenis !== 'undefined' && window.innerWidth > 768) {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(raf);
 
-    // Sync Lenis with GSAP ScrollTrigger
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time) => {
@@ -33,50 +32,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hero Staggered Entrance
     gsap.from('.gsap-hero-elem', {
-      y: 55,
+      y: 45,
       opacity: 0,
-      duration: 1.2,
-      stagger: 0.16,
+      duration: 1.1,
+      stagger: 0.15,
       ease: 'power3.out',
-      delay: 0.2
+      delay: 0.15
     });
 
     // Scroll-Triggered Section Reveals
-    const revealElements = document.querySelectorAll('.gsap-reveal');
-    revealElements.forEach((el) => {
+    document.querySelectorAll('.gsap-reveal').forEach((el) => {
       gsap.from(el, {
         scrollTrigger: {
           trigger: el,
-          start: 'top 85%',
+          start: 'top 88%',
           toggleActions: 'play none none none'
         },
-        y: 45,
+        y: 40,
         opacity: 0,
-        duration: 1,
+        duration: 0.95,
         ease: 'power3.out'
       });
     });
 
-    // Section Header Line Animations
+    // Section Header Slide Animations
     document.querySelectorAll('.row-header').forEach((header) => {
       gsap.from(header, {
         scrollTrigger: {
           trigger: header,
-          start: 'top 90%'
+          start: 'top 92%'
         },
-        x: -40,
+        x: -30,
         opacity: 0,
-        duration: 0.9,
+        duration: 0.85,
         ease: 'power2.out'
       });
     });
   }
 
-  // 3. GLOWING CUSTOM CURSOR LISTENER
+  // 3. GLOWING CUSTOM CURSOR (HIDDEN ON TOUCH & SMALL SCREENS <= 768px)
   const cursorDot = document.getElementById('cursorDot');
   const cursorFollower = document.getElementById('cursorFollower');
 
-  if (cursorDot && cursorFollower) {
+  if (cursorDot && cursorFollower && window.innerWidth > 768) {
     let mouseX = 0, mouseY = 0;
     let followerX = 0, followerY = 0;
 
@@ -89,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function animateCursor() {
-      followerX += (mouseX - followerX) * 0.15;
-      followerY += (mouseY - followerY) * 0.15;
+      followerX += (mouseX - followerX) * 0.16;
+      followerY += (mouseY - followerY) * 0.16;
 
       cursorFollower.style.left = `${followerX}px`;
       cursorFollower.style.top = `${followerY}px`;
@@ -99,19 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animateCursor();
 
-    // Hover Expand Triggers
-    const interactiveElements = document.querySelectorAll('.interactive-hover, a, button, .netflix-card');
-    interactiveElements.forEach(elem => {
-      elem.addEventListener('mouseenter', () => {
-        cursorFollower.classList.add('active');
-      });
-      elem.addEventListener('mouseleave', () => {
-        cursorFollower.classList.remove('active');
-      });
+    document.querySelectorAll('.interactive-hover, a, button, .netflix-card').forEach(elem => {
+      elem.addEventListener('mouseenter', () => cursorFollower.classList.add('active'));
+      elem.addEventListener('mouseleave', () => cursorFollower.classList.remove('active'));
     });
   }
 
-  // 4. INTERACTIVE PARTICLE CANVAS BACKGROUND
+  // 4. RESPONSIVE INTERACTIVE PARTICLE CANVAS BACKGROUND
   const canvas = document.getElementById('particleCanvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -124,14 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const particles = [];
-    const particleCount = 45;
+    const particleCount = window.innerWidth <= 480 ? 20 : 45; // Adapt particle count for mobile GPUs
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.8,
+        vx: (Math.random() - 0.5) * 0.7,
+        vy: (Math.random() - 0.5) * 0.7,
         radius: Math.random() * 2 + 1,
         color: Math.random() > 0.5 ? 'rgba(229, 9, 20, ' : 'rgba(56, 189, 248, '
       });
@@ -159,11 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 130) {
+          if (dist < 120) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = p.color + (1 - dist / 130) * 0.25 + ')';
+            ctx.strokeStyle = p.color + (1 - dist / 120) * 0.25 + ')';
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -175,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderParticles();
   }
 
-  // 5. Scroll Progress Bar Update & Navbar Solidification
+  // 5. Scroll Progress Bar & Header Solidification Listener
   const progressBar = document.getElementById('progressBar');
   const navbar = document.getElementById('navbar');
 
@@ -185,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (progressBar) progressBar.style.width = scrollPercentage + '%';
 
     if (navbar) {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
@@ -193,12 +185,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 6. Mobile Menu Toggle
+  // 6. Mobile Touch-Friendly Navigation Toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const navLinks = document.getElementById('navLinks');
 
   if (mobileToggle && navLinks) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       navLinks.classList.toggle('active');
     });
 
@@ -206,6 +199,12 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navLinks.classList.remove('active');
+      }
     });
   }
 

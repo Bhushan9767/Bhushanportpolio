@@ -1,8 +1,10 @@
 /* ====================================================
-   BHUSHAN DHARMADHIKARI - ANIMATED NETFLIX & AMAZON UI
-   Features: Lenis Smooth Scroll Engine, GSAP + ScrollTrigger,
-            Interactive Particle Web Canvas, Glowing Custom Cursor,
-            Staggered Reveals & Micro-Interactions
+   BHUSHAN DHARMADHIKARI - FULLY RESPONSIVE CINEMATIC UI
+   Breakpoints: Smallest Mobiles (320px) -> 4K Ultrawide (2560px+)
+   Design System: Pitch Black (#0a0b10), Netflix Crimson (#e50914),
+                  Amazon Gold (#ff9900), Electric Cyan (#38bdf8)
+   Features: Fluid Typography (clamp), Touch-Optimized Carousel Rails,
+            Lenis Smooth Scroll Engine, GSAP ScrollTrigger, Custom Cursor
 ==================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -39,6 +41,7 @@
 
 html {
   font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* LENIS SMOOTH SCROLL OVERRIDES */
@@ -64,6 +67,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  touch-action: manipulation;
 }
 
 /* GLOWING CUSTOM CURSOR */
@@ -110,10 +114,10 @@ img { max-width: 100%; height: auto; display: block; }
 
 .container {
   width: 100%;
-  max-width: 1380px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: clamp(1rem, 4vw, 2.5rem);
+  padding-right: clamp(1rem, 4vw, 2.5rem);
 }
 
 /* TOP SCROLL PROGRESS BAR */
@@ -135,8 +139,8 @@ img { max-width: 100%; height: auto; display: block; }
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: clamp(0.75rem, 1.5vw, 1.2rem);
+  padding-bottom: clamp(0.75rem, 1.5vw, 1.2rem);
   background: rgba(10, 11, 16, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-card);
@@ -156,7 +160,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .nav-brand {
   font-family: var(--font-heading);
-  font-size: 1.7rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   font-weight: 900;
   color: var(--accent-red);
   letter-spacing: -0.03em;
@@ -168,40 +172,46 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.8rem;
-  font-size: 0.9rem;
+  gap: clamp(1rem, 1.8vw, 1.8rem);
+  font-size: clamp(0.82rem, 1vw, 0.92rem);
   font-weight: 600;
 }
 
 .nav-link {
   color: #e5e5e5;
   transition: color 0.25s ease;
+  padding: 0.3rem 0;
 }
 
 .nav-link:hover { color: var(--accent-red); }
 
 .mobile-toggle {
   display: none;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #fff;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .btn-netflix {
   background: var(--accent-red);
   color: #fff;
   font-weight: 800;
-  font-size: 0.9rem;
-  padding: 0.65rem 1.5rem;
+  font-size: clamp(0.82rem, 1vw, 0.9rem);
+  padding: clamp(0.55rem, 1.2vw, 0.75rem) clamp(1.1rem, 2vw, 1.6rem);
   border-radius: var(--radius-sm);
   transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   border: none;
   box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+  min-height: 44px;
 }
 
 .btn-netflix:hover {
@@ -214,15 +224,17 @@ img { max-width: 100%; height: auto; display: block; }
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.65rem 1.5rem;
+  font-size: clamp(0.82rem, 1vw, 0.9rem);
+  padding: clamp(0.55rem, 1.2vw, 0.75rem) clamp(1.1rem, 2vw, 1.6rem);
   border-radius: var(--radius-sm);
   transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   border: 1px solid var(--border-card);
   backdrop-filter: blur(8px);
+  min-height: 44px;
 }
 
 .btn-secondary-netflix:hover {
@@ -232,8 +244,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* PURE DARK TECH HERO BANNER WITH CANVAS PARTICLES */
 .hero-section {
-  padding-top: 7.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: clamp(6rem, 12vw, 8rem);
+  padding-bottom: clamp(3.5rem, 8vw, 5.5rem);
   min-height: 85vh;
   position: relative;
   background-color: #0a0b10;
@@ -262,7 +274,7 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 0.5rem;
   background: var(--accent-red);
   color: #fff;
-  font-size: 0.75rem;
+  font-size: clamp(0.68rem, 1vw, 0.78rem);
   font-weight: 900;
   letter-spacing: 1px;
   padding: 0.3rem 0.85rem;
@@ -273,19 +285,21 @@ img { max-width: 100%; height: auto; display: block; }
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
   font-weight: 900;
   line-height: 1.08;
   color: #fff;
   margin-bottom: 1rem;
+  word-break: break-word;
 }
 
 .hero-meta-row {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  flex-wrap: wrap;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
   margin-bottom: 1.2rem;
-  font-size: 0.9rem;
+  font-size: clamp(0.82rem, 1vw, 0.92rem);
   font-weight: 700;
 }
 
@@ -293,9 +307,9 @@ img { max-width: 100%; height: auto; display: block; }
 .age-rating { border: 1px solid #aaa; padding: 0.1rem 0.4rem; font-size: 0.75rem; border-radius: 2px; }
 
 .hero-desc {
-  font-size: 1.08rem;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
   color: #e5e5e5;
-  line-height: 1.65;
+  line-height: 1.68;
   margin-bottom: 1.8rem;
 }
 
@@ -338,16 +352,16 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(56, 189, 248, 0.25);
 }
 
-/* NETFLIX ROW SCROLL RAILS */
+/* NETFLIX ROW SCROLL RAILS - TOUCH OPTIMIZED */
 .row-section {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-top: clamp(2rem, 5vw, 3.2rem);
+  padding-bottom: clamp(2rem, 5vw, 3.2rem);
   position: relative;
 }
 
 .row-header {
   font-family: var(--font-heading);
-  font-size: 1.45rem;
+  font-size: clamp(1.2rem, 2.8vw, 1.6rem);
   font-weight: 800;
   color: #e5e5e5;
   margin-bottom: 1.2rem;
@@ -360,11 +374,13 @@ img { max-width: 100%; height: auto; display: block; }
 
 .carousel-rail {
   display: flex;
-  gap: 1.2rem;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
   overflow-x: auto;
   padding-bottom: 1.5rem;
   padding-top: 0.5rem;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
 }
 
 .carousel-rail::-webkit-scrollbar {
@@ -377,7 +393,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* NETFLIX POSTER CARD WITH HOVER ZOOM & ANIMATION */
 .netflix-card {
-  min-width: 290px;
+  min-width: clamp(240px, 75vw, 290px);
   max-width: 290px;
   background: var(--bg-card);
   border-radius: var(--radius-md);
@@ -386,10 +402,11 @@ img { max-width: 100%; height: auto; display: block; }
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, z-index 0.35s ease;
   cursor: pointer;
   border: 1px solid var(--border-card);
+  flex-shrink: 0;
 }
 
 .netflix-card:hover {
-  transform: scale(1.08) translateY(-6px);
+  transform: scale(1.06) translateY(-6px);
   z-index: 100;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 20px rgba(229, 9, 20, 0.35);
   background: var(--bg-card-hover);
@@ -473,8 +490,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* FOOTER */
 .footer {
-  padding-top: 4rem;
-  padding-bottom: 2rem;
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
   background: #06070a;
   color: var(--text-sub);
   border-top: 1px solid var(--border-card);
@@ -482,8 +499,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
   margin-bottom: 3rem;
   font-size: 0.88rem;
 }
@@ -501,33 +518,90 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 0.4rem;
   display: block;
   transition: color 0.2s ease;
+  word-break: break-all;
 }
 
 .footer-link:hover { color: var(--accent-red); text-decoration: underline; }
 
-/* MEDIA QUERIES */
+/* ==================== COMPREHENSIVE RESPONSIVE BREAKPOINTS ==================== */
+
+/* 1. Ultrawide Desktops & 4K Monitors (1920px+) */
+@media (min-width: 1920px) {
+  .hero-title { font-size: 4.5rem; }
+  .hero-desc { font-size: 1.25rem; }
+}
+
+/* 2. Tablets & Small Laptops (992px to 1199px) */
+@media (max-width: 1199px) {
+  .nav-links { gap: 1.2rem; }
+}
+
+/* 3. Mobile Hamburger Navigation Overlay (<= 992px) */
 @media (max-width: 992px) {
-  .hero-section > .container { grid-template-columns: 1fr !important; gap: 2rem; }
+  .hero-section > .container {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .hero-content { margin: 0 auto; }
+  .hero-meta-row { justify-content: center; }
+  
   .mobile-toggle { display: block; }
   .nav-links {
     position: fixed;
-    top: 60px;
+    top: 65px;
     left: 0;
     width: 100%;
     background: rgba(10, 11, 16, 0.98);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 1rem;
+    padding: 2rem 1.5rem;
+    gap: 1.2rem;
     border-bottom: 1px solid var(--border-card);
-    display: none;
+    transform: translateY(-120%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.9);
   }
-  .nav-links.active { display: flex; }
+  .nav-links.active {
+    transform: translateY(0);
+  }
+
+  #about .container > div {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem;
+    text-align: center;
+  }
 }
 
-@media (max-width: 640px) {
+/* 4. Small Tablets & Large Smartphones (<= 768px) */
+@media (max-width: 768px) {
+  .btn-netflix, .btn-secondary-netflix {
+    width: 100%;
+  }
+  .cursor-dot, .cursor-follower {
+    display: none !important; /* Hide custom cursor on touch devices */
+  }
+  #skills > .container > div {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 5. Mobiles & Smartphones (<= 480px) */
+@media (max-width: 480px) {
   .container { padding-left: 1rem; padding-right: 1rem; }
-  .hero-section { padding-top: 6.5rem; padding-bottom: 3rem; }
-  .btn-netflix, .btn-secondary-netflix { width: 100%; justify-content: center; }
-  .cursor-dot, .cursor-follower { display: none; }
+  .hero-section { padding-top: 5.5rem; padding-bottom: 2.5rem; }
+  .badge-top10 { font-size: 0.65rem; padding: 0.25rem 0.65rem; }
+  .netflix-card {
+    min-width: 250px;
+    max-width: 260px;
+  }
+  .poster-img-wrap { height: 150px; }
+  .card-body-netflix { padding: 0.85rem; }
+}
+
+/* 6. Extra Small Mobiles & Smartwatches (<= 360px) */
+@media (max-width: 360px) {
+  .hero-title { font-size: 1.8rem; }
+  .hero-desc { font-size: 0.88rem; }
+  .netflix-card { min-width: 230px; }
 }
