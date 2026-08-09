@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-netflix: #0c0d12;
+  --bg-netflix: #0a0b10;
   --bg-card: #141620;
   --bg-card-hover: #1e2130;
 
@@ -84,15 +84,15 @@ img { max-width: 100%; height: auto; display: block; }
   z-index: 1000;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background: rgba(12, 13, 18, 0.88);
+  background: rgba(10, 11, 16, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-card);
   transition: background 0.4s ease;
 }
 
 .navbar.scrolled {
-  background: rgba(12, 13, 18, 0.98);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  background: rgba(10, 11, 16, 0.98);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
 }
 
 .nav-wrap {
@@ -177,15 +177,19 @@ img { max-width: 100%; height: auto; display: block; }
   transform: translateY(-2px);
 }
 
-/* CLEAN DEEP DARK HERO BANNER */
+/* PURE DARK TECH HERO BANNER - ZERO PHOTO IN BACKGROUND */
 .hero-section {
   padding-top: 7.5rem;
   padding-bottom: 5.5rem;
   min-height: 85vh;
   position: relative;
-  background: radial-gradient(circle at 80% 20%, rgba(229, 9, 20, 0.12) 0%, transparent 45%),
-              radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 45%),
-              #0c0d12;
+  background-color: #0a0b10;
+  background-image: 
+    radial-gradient(circle at 85% 25%, rgba(229, 9, 20, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 15% 75%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
   display: flex;
   align-items: center;
 }
@@ -374,7 +378,7 @@ img { max-width: 100%; height: auto; display: block; }
 .footer {
   padding-top: 4rem;
   padding-bottom: 2rem;
-  background: #08080c;
+  background: #06070a;
   color: var(--text-sub);
   border-top: 1px solid var(--border-card);
 }
@@ -413,7 +417,7 @@ img { max-width: 100%; height: auto; display: block; }
     top: 60px;
     left: 0;
     width: 100%;
-    background: rgba(12, 13, 18, 0.98);
+    background: rgba(10, 11, 16, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
     padding: 1.5rem;
